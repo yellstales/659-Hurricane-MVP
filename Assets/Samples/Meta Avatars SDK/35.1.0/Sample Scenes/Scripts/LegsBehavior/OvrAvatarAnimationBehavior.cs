@@ -20,6 +20,7 @@
 
 #nullable enable
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -240,6 +241,11 @@ namespace Oculus.Avatar2.Experimental
 
         private Quaternion _ankleOverrideRotationOffset = Quaternion.Euler(new Vector3(90.0f, -90.0f, 0.0f));
 
+        /**
+         * Delegate for hinge correction override
+         * @see OvrAvatarAnimation.OvrAvatarAnimation.HingeCorrectionOverride
+         */
+        public OvrAvatarAnimation.HingeCorrectionOverride? HingeCorrectionOverride { get; set; }
 
         [System.Serializable]
         protected struct MRAnimationOptions
@@ -739,6 +745,8 @@ namespace Oculus.Avatar2.Experimental
                         }
                     }
                 };
+
+                puppeteerInfo.HingeCorrectOverride = HingeCorrectionOverride;
 
             }
 

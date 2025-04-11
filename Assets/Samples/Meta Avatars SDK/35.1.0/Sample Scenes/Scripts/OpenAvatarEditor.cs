@@ -33,6 +33,9 @@ using System.Collections.Generic;
 public class OpenAvatarEditor : MonoBehaviour, IUIControllerInterface
 {
     private const string logScope = "open_avatar_editor";
+    private float lastLaunchAttemptTimestamp;
+    // Only attempt to launch the avatar editor once per N seconds
+    private float debouncePeriodSeconds = 2.0f;
 
     void Update()
     {
@@ -41,6 +44,12 @@ public class OpenAvatarEditor : MonoBehaviour, IUIControllerInterface
         // TODO: Should the user be able to run avatar editor when in UI?
         if (!UIManager.IsPaused && OVRInput.Get(OVRInput.Button.One) && OVRInput.Get(OVRInput.Button.Two))
         {
+            if (lastLaunchAttemptTimestamp + debouncePeriodSeconds > Time.time)
+            {
+                return;
+            }
+
+            lastLaunchAttemptTimestamp = Time.time;
             if (OvrPlatformInit.status != OvrPlatformInitStatus.Succeeded)
             {
                 OvrAvatarLog.LogError("OvrPlatform not initialized.", logScope);
