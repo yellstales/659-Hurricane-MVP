@@ -1,0 +1,11 @@
+Model Information:
+* title:	Office Desk
+* source:	https://sketchfab.com/3d-models/office-desk-3b6df50cc1124d90a90f163676631c6a
+* author:	HippoStance (https://sketchfab.com/hippostance)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Office Desk" (https://sketchfab.com/3d-models/office-desk-3b6df50cc1124d90a90f163676631c6a) by HippoStance (https://sketchfab.com/hippostance) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

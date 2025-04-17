@@ -1,0 +1,11 @@
+Model Information:
+* title:	MEDICATION JC
+* source:	https://sketchfab.com/3d-models/medication-jc-9180344a1be2441ba75db44baee0b7b0
+* author:	jackcress (https://sketchfab.com/jackcress)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "MEDICATION JC" (https://sketchfab.com/3d-models/medication-jc-9180344a1be2441ba75db44baee0b7b0) by jackcress (https://sketchfab.com/jackcress) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

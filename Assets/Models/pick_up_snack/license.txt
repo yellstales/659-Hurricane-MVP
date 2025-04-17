@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pick up snack
+* source:	https://sketchfab.com/3d-models/pick-up-snack-a8a32264af63472ca2f3cd34bb6a93a1
+* author:	saradiora (https://sketchfab.com/saradiora)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pick up snack" (https://sketchfab.com/3d-models/pick-up-snack-a8a32264af63472ca2f3cd34bb6a93a1) by saradiora (https://sketchfab.com/saradiora) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

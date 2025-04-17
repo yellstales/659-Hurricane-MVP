@@ -1,0 +1,11 @@
+Model Information:
+* title:	Off-road Tires
+* source:	https://sketchfab.com/3d-models/off-road-tires-187ec95da53843cb83b0412bcd97e836
+* author:	ROY (https://sketchfab.com/roy.gearloft.in)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Off-road Tires" (https://sketchfab.com/3d-models/off-road-tires-187ec95da53843cb83b0412bcd97e836) by ROY (https://sketchfab.com/roy.gearloft.in) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
