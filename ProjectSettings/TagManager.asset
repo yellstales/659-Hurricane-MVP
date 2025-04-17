@@ -3,7 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - npc
+  - QDSUIToggleButton
+  - bandage
+  - QDSUIIcon
+  - QDSUITextSecondaryColor
+  - QDSUIBackplateGradient
+  - QDSUIToggleCheckboxRadio
+  - QDSUISection
+  - QDSUIToggleSwitch
+  - QDSUITooltip
+  - QDSUIToggleBorderlessButton
+  - QDSUISharedThemeColor
+  - QDSUIAccentColor
+  - producer
+  - techSpecialist
+  - cameraman
   layers:
   - Default
   - TransparentFX

@@ -1,9 +1,11 @@
 {
   "dependencies": {
+    "com.atteneder.gltfast": "file:C:/Users/yrysbek/Downloads/glTFast-openupm/glTFast-openupm",
     "com.meta.xr.sdk.all": "74.0.3",
     "com.meta.xr.sdk.avatars": "35.1.0",
     "com.unity.collab-proxy": "2.7.1",
     "com.unity.feature.development": "1.0.1",
+    "com.unity.inputsystem": "1.7.0",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.7.6",
     "com.unity.toolchain.win-x86_64-linux-x86_64": "2.0.10",
