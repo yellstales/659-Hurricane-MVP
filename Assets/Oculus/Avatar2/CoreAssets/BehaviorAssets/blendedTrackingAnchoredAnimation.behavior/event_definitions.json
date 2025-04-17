@@ -55,10 +55,6 @@
     {
       "name": "avatarSDK_enableLocalAnimationPlayback",
       "type": "bool"
-    },
-    {
-      "name": "avatarSDK_armStretchLimitScalar",
-      "type": "float"
     }
   ]
 }

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Satellite Phone
+* source:	https://sketchfab.com/3d-models/satellite-phone-20a2f09d8a4b48e0b4fe0dedb740eb2f
+* author:	duck123acb (https://sketchfab.com/duck123acb)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Satellite Phone" (https://sketchfab.com/3d-models/satellite-phone-20a2f09d8a4b48e0b4fe0dedb740eb2f) by duck123acb (https://sketchfab.com/duck123acb) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

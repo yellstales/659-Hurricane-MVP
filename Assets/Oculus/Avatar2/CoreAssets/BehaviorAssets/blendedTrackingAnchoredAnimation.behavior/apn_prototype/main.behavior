@@ -875,15 +875,7 @@
                     "name": "CalcArmLength",
                     "type": "mathExpression",
                     "members": {
-                        "expression": "length(armVector) * 1.25 * armStretchLimitScalar"
-                    }
-                },
-                {
-                    "name": "getDynamicStoreValueFloat",
-                    "type": "getDynamicStoreValueFloat",
-                    "members": {
-                        "key": "avatarSDK_armStretchLimitScalar",
-                        "defaultValue": 1.0
+                        "expression": "length(armVector)"
                     }
                 }
             ],
@@ -919,10 +911,6 @@
                 [
                     ":defaultPose",
                     "GetLeftWristJoint:inputPose"
-                ],
-                [
-                    "getDynamicStoreValueFloat:outputValue",
-                    "CalcArmLength:armStretchLimitScalar"
                 ]
             ]
         },

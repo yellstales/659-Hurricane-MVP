@@ -71,13 +71,6 @@
             },
             "displayMode": "full"
         },
-        "{main.uniformScale}": {
-            "position": {
-                "x": 875.0,
-                "y": 225.0
-            },
-            "displayMode": "full"
-        },
         "{main}||inputs": {
             "position": {
                 "x": 100.0,

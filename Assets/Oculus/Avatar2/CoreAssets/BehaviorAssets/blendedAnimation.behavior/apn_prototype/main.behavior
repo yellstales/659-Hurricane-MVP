@@ -106,13 +106,6 @@
                 {
                     "name": "SelectByBool",
                     "type": "SelectByBool"
-                },
-                {
-                    "name": "RotationalTrackingOffset",
-                    "type": "subGraph",
-                    "members": {
-                        "graph": "RotationalTrackingOffset"
-                    }
                 }
             ],
             "links": [
@@ -145,6 +138,10 @@
                     "GenerateAnimatedPose:rootCorrectionTransform"
                 ],
                 [
+                    "GenerateAnimatedPose:animatedPose",
+                    "BlendTrackingIntoAnimatedPose:animatedPose"
+                ],
+                [
                     "BlendTrackingIntoAnimatedPose:blendedPose",
                     "OneToOneTrackingAdjustment:blendedPose"
                 ],
@@ -169,6 +166,10 @@
                     ":pose3P"
                 ],
                 [
+                    "LimitStretchRightArm:outputPose",
+                    "AnkleOverride:inputPose"
+                ],
+                [
                     "getComponentOfVec:outputY",
                     "AnkleOverride:inverseScaleFactor"
                 ],
@@ -187,24 +188,14 @@
                 [
                     "SelectByBool:output",
                     ":pose"
-                ],
-                [
-                    "GenerateAnimatedPose:animatedPose",
-                    "RotationalTrackingOffset:animatedPose"
-                ],
-                [
-                    ":trackingPose",
-                    "RotationalTrackingOffset:trackingPose"
-                ],
-                [
-                    "RotationalTrackingOffset:outputPose",
-                    "BlendTrackingIntoAnimatedPose:animatedPose"
-                ],
-                [
-                    "LimitStretchRightArm:outputPose",
-                    "AnkleOverride:inputPose"
                 ]
             ]
+        },
+        {
+            "name": "dataflow",
+            "type": "dataflow",
+            "nodes": [],
+            "links": []
         },
         {
             "name": "LimitStretchLeftArm",
@@ -612,15 +603,7 @@
                     "name": "CalcArmLength",
                     "type": "mathExpression",
                     "members": {
-                        "expression": "length(armVector) * 1.25 * armStretchLimitScalar"
-                    }
-                },
-                {
-                    "name": "getDynamicStoreValueFloat",
-                    "type": "getDynamicStoreValueFloat",
-                    "members": {
-                        "key": "avatarSDK_armStretchLimitScalar",
-                        "defaultValue": 1.0
+                        "expression": "length(armVector)"
                     }
                 }
             ],
@@ -656,10 +639,6 @@
                 [
                     "CalcArmVector:value",
                     "CalcArmLength:armVector"
-                ],
-                [
-                    "getDynamicStoreValueFloat:outputValue",
-                    "CalcArmLength:armStretchLimitScalar"
                 ]
             ]
         },
@@ -780,6 +759,18 @@
                     "makeObject_featherBlend_blendPoses_leftArm:eventWeight"
                 ],
                 [
+                    "facialBlendFactor:outputValue",
+                    "makeObject_featherBlend_blendPoses_head:jointBaseWeight"
+                ],
+                [
+                    "facialBlendFactor:outputValue",
+                    "makeObject_featherBlend_blendPoses_head:floatWeight"
+                ],
+                [
+                    "facialBlendFactor:outputValue",
+                    "makeObject_featherBlend_blendPoses_head:eventWeight"
+                ],
+                [
                     "makeObject_featherBlend_blendPoses_head:output",
                     "makeArray_headArmBlend:0"
                 ],
@@ -806,6 +797,10 @@
                 [
                     ":trackingPose",
                     "makeObject_featherBlend_blendPoses_leftArm:inputPose"
+                ],
+                [
+                    ":trackingPose",
+                    "makeObject_featherBlend_blendPoses_head:inputPose"
                 ],
                 [
                     "featherBlend_headArms:outputPose",
@@ -991,6 +986,18 @@
                     "makeArray_trackedWristPoses:1"
                 ],
                 [
+                    "featherBlend_trackedWristPoses:outputPose",
+                    ":outputPose"
+                ],
+                [
+                    ":blendedPose",
+                    "featherBlend_trackedWristPoses:inputPose"
+                ],
+                [
+                    ":trackingPose",
+                    "getLeftWristJoint:inputPose"
+                ],
+                [
                     "getLeftWristJoint:outputTransform",
                     "getComponentOfTransform:transform"
                 ],
@@ -1009,6 +1016,10 @@
                 [
                     "getComponentOfTransform:scale",
                     "makeTransform:scale"
+                ],
+                [
+                    ":blendedPose",
+                    "setJointTransform:inputPose"
                 ],
                 [
                     "makeTransform:transform",
@@ -1043,40 +1054,24 @@
                     "setJointTransform_1:inputTransform"
                 ],
                 [
-                    "setJointTransform_1:outputPose",
-                    "makeObject_featherBlendRightTrackedWrist:inputPose"
-                ],
-                [
-                    "featherBlend_trackedWristPoses:outputPose",
-                    ":outputPose"
-                ],
-                [
                     ":trackingPose",
                     "getRightWristJoint:inputPose"
-                ],
-                [
-                    ":trackingPose",
-                    "getLeftWristJoint:inputPose"
-                ],
-                [
-                    ":inverseScaleFactor",
-                    "ScaleLeftWristVector:inverseScaleFactor"
-                ],
-                [
-                    ":inverseScaleFactor",
-                    "ScaleRightWristVector:inverseScaleFactor"
-                ],
-                [
-                    ":blendedPose",
-                    "setJointTransform:inputPose"
                 ],
                 [
                     ":blendedPose",
                     "setJointTransform_1:inputPose"
                 ],
                 [
-                    ":blendedPose",
-                    "featherBlend_trackedWristPoses:inputPose"
+                    "setJointTransform_1:outputPose",
+                    "makeObject_featherBlendRightTrackedWrist:inputPose"
+                ],
+                [
+                    ":inverseScaleFactor",
+                    "ScaleRightWristVector:inverseScaleFactor"
+                ],
+                [
+                    ":inverseScaleFactor",
+                    "ScaleLeftWristVector:inverseScaleFactor"
                 ]
             ]
         },
@@ -1530,160 +1525,6 @@
                 [
                     "ScaleRightAnklePosition:value",
                     "makeTransform_1:position"
-                ]
-            ]
-        },
-        {
-            "name": "RotationalTrackingOffset",
-            "type": "dataflow",
-            "inputs": [
-                {
-                    "name": "trackingPose",
-                    "type": "pose",
-                    "defaultLink": ""
-                },
-                {
-                    "name": "animatedPose",
-                    "type": "pose",
-                    "defaultLink": ""
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "outputPose",
-                    "type": "pose"
-                }
-            ],
-            "nodes": [
-                {
-                    "name": "getPelvisTracking",
-                    "type": "getJointTransform",
-                    "members": {
-                        "jointName": "RTRig_Pelvis",
-                        "coordinateSpace": "character"
-                    }
-                },
-                {
-                    "name": "getPelvisAnimated",
-                    "type": "getJointTransform",
-                    "members": {
-                        "jointName": "RTRig_Pelvis",
-                        "coordinateSpace": "character"
-                    }
-                },
-                {
-                    "name": "getPelvisTrackingPosition",
-                    "type": "getComponentOfTransform"
-                },
-                {
-                    "name": "getPelvisAnimatedPosition",
-                    "type": "getComponentOfTransform"
-                },
-                {
-                    "name": "pelvisDiff",
-                    "type": "mathExpression",
-                    "members": {
-                        "expression": "trackingPosition - animatedPosition"
-                    }
-                },
-                {
-                    "name": "getPelvisHorizontalDiff",
-                    "type": "getComponentOfVec3"
-                },
-                {
-                    "name": "makeHorizontalDiffVector",
-                    "type": "makeVec3"
-                },
-                {
-                    "name": "applyOffsetToPelvisJoint",
-                    "type": "setJointTransform",
-                    "members": {
-                        "jointName": "RTRig_Pelvis",
-                        "coordinateSpace": "character",
-                        "applyAsOffset": true,
-                        "doReproportioning": true
-                    }
-                },
-                {
-                    "name": "makePelvisDiffTransform",
-                    "type": "makeTransform"
-                },
-                {
-                    "name": "avatarSDK_enableRotationalTrackingOffset",
-                    "type": "getDynamicStoreValueBool",
-                    "members": {
-                        "key": "avatarSDK_enableRotationalTrackingOffset"
-                    }
-                },
-                {
-                    "name": "SelectByBool",
-                    "type": "SelectByBool"
-                }
-            ],
-            "links": [
-                [
-                    "getPelvisTracking:outputTransform",
-                    "getPelvisTrackingPosition:transform"
-                ],
-                [
-                    "getPelvisAnimated:outputTransform",
-                    "getPelvisAnimatedPosition:transform"
-                ],
-                [
-                    "getPelvisTrackingPosition:position",
-                    "pelvisDiff:trackingPosition"
-                ],
-                [
-                    "getPelvisAnimatedPosition:position",
-                    "pelvisDiff:animatedPosition"
-                ],
-                [
-                    "pelvisDiff:value",
-                    "getPelvisHorizontalDiff:inputVec3"
-                ],
-                [
-                    "getPelvisHorizontalDiff:outputX",
-                    "makeHorizontalDiffVector:inputX"
-                ],
-                [
-                    "getPelvisHorizontalDiff:outputZ",
-                    "makeHorizontalDiffVector:inputZ"
-                ],
-                [
-                    "makeHorizontalDiffVector:outputVec3",
-                    "makePelvisDiffTransform:position"
-                ],
-                [
-                    "makePelvisDiffTransform:transform",
-                    "applyOffsetToPelvisJoint:inputTransform"
-                ],
-                [
-                    "avatarSDK_enableRotationalTrackingOffset:outputValue",
-                    "SelectByBool:inputValue"
-                ],
-                [
-                    "applyOffsetToPelvisJoint:outputPose",
-                    "SelectByBool:inputTrue"
-                ],
-                [
-                    ":trackingPose",
-                    "getPelvisTracking:inputPose"
-                ],
-                [
-                    "SelectByBool:output",
-                    ":outputPose"
-                ],
-                [
-                    ":animatedPose",
-                    "applyOffsetToPelvisJoint:inputPose"
-                ],
-                [
-                    ":animatedPose",
-                    "SelectByBool:inputFalse"
-                ],
-                [
-                    ":animatedPose",
-                    "getPelvisAnimated:inputPose"
                 ]
             ]
         }
